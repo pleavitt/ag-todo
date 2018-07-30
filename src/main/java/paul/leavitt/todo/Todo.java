@@ -1,12 +1,13 @@
 package paul.leavitt.todo;
 
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
@@ -16,13 +17,14 @@ import java.util.Date;
 @ToString
 @EqualsAndHashCode
 @EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor
 public class Todo implements Serializable {
 
     @Id @GeneratedValue
     private long id;
 
     @Size(min = 1, max = 50, message = "Must be between 1 and 50 chars long")
-    @NotNull
+    @NotBlank
     private String text;
 
     private boolean isCompleted;
@@ -31,6 +33,10 @@ public class Todo implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     private Date createdAt;
+
+    public Todo(String text){
+        this.text = text;
+    }
 
     public long getId() {
         return id;

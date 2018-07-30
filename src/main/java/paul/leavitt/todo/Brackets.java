@@ -27,6 +27,8 @@ public class Brackets implements Serializable {
     }
 
     private boolean isBalanced(String str){
+        str = str.replaceAll("[^()\\[\\]<>{}]", "");
+
         if (str.length() == 0) {
             return true;
         }
@@ -35,15 +37,15 @@ public class Brackets implements Serializable {
         }
 
         if (str.contains("[]")) {
-            return isBalanced(str.replaceFirst("\\[\\]", ""));
+            return isBalanced(str.replaceFirst("\\[]", ""));
         }
 
         if (str.contains("<>")) {
-            return isBalanced(str.replaceFirst("\\<\\>", ""));
+            return isBalanced(str.replaceFirst("<>", ""));
         }
 
         if (str.contains("{}")) {
-            return isBalanced(str.replaceFirst("\\{\\}", ""));
+            return isBalanced(str.replaceFirst("\\{}", ""));
         } else {
             return false;
         }

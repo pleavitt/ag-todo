@@ -1,18 +1,17 @@
 package paul.leavitt.todo;
 
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 @RestController
 public class BracketController {
 
-    @PostMapping("/tasks/validateBrackets")
-    public Brackets validateBrackets(@Valid @RequestBody Brackets brackets) {
+    @GetMapping("/tasks/validateBrackets/{params}")
+    public Brackets validateBrackets(@PathVariable(value = "params") String params) {
 
-        return new Brackets(brackets.getInput());
+        return new Brackets(params);
     }
 
 }
