@@ -8,10 +8,10 @@ import javax.validation.constraints.Size;
 @RestController
 public class BracketController {
 
-    @GetMapping("/tasks/validateBrackets/{params}")
-    public Brackets validateBrackets(@PathVariable(value = "params") String params) {
+    @GetMapping("/tasks/validateBrackets")
+    public Brackets validateBrackets(@RequestParam(value = "input") String input) {
 
-        return new Brackets(params);
+        return new Brackets(input);
     }
 
 }
