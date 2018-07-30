@@ -32,8 +32,6 @@ public class TodoController {
         todo.setText(todoContents.getText());
         todo.setIsCompleted(todoContents.isIsCompleted());
 
-        Todo updatedTodo = repository.save(todo);
-
-        return updatedTodo;
+        return repository.save(todo);
     }
 }

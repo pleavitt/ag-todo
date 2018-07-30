@@ -12,6 +12,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -47,7 +48,7 @@ public class TodoValidationExceptionHandler extends ResponseEntityExceptionHandl
     @ExceptionHandler(TodoNotFoundException.class)
     protected ResponseEntity<Object> handleNotFoundException(final TodoNotFoundException ex) {
 
-        List<TodoFieldError> todoFieldErrors =  Arrays.asList( new TodoFieldError(ex.getLocalizedMessage()));
+        List<TodoFieldError> todoFieldErrors = Collections.singletonList(new TodoFieldError(ex.getLocalizedMessage()));
 
         TodoErrorView todoErrorView = new TodoErrorView(todoFieldErrors, "NotFoundError");
 

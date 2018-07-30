@@ -21,12 +21,12 @@ public class Brackets implements Serializable {
 
     private boolean balanced;
 
-    public Brackets(String input){
+    public Brackets(String input) {
         this.input = input;
         this.balanced = isBalanced(this.input);
     }
 
-    private boolean isBalanced(String str){
+    private boolean isBalanced(String str) {
         str = str.replaceAll("[^()\\[\\]<>{}]", "");
 
         if (str.length() == 0) {
@@ -44,10 +44,6 @@ public class Brackets implements Serializable {
             return isBalanced(str.replaceFirst("<>", ""));
         }
 
-        if (str.contains("{}")) {
-            return isBalanced(str.replaceFirst("\\{}", ""));
-        } else {
-            return false;
-        }
+        return str.contains("{}") && isBalanced(str.replaceFirst("\\{}", ""));
     }
 }
