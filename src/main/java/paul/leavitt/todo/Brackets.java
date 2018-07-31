@@ -19,31 +19,31 @@ public class Brackets implements Serializable {
     @NotBlank
     private String input;
 
-    private boolean balanced;
+    private boolean isbalanced;
 
     public Brackets(String input) {
         this.input = input;
-        this.balanced = isBalanced(this.input);
+        this.isbalanced = isIsBalanced(this.input);
     }
 
-    private boolean isBalanced(String str) {
+    private boolean isIsBalanced(String str) {
         str = str.replaceAll("[^()\\[\\]<>{}]", "");
 
         if (str.length() == 0) {
             return true;
         }
         if (str.contains("()")) {
-            return isBalanced(str.replaceFirst("\\(\\)", ""));
+            return isIsBalanced(str.replaceFirst("\\(\\)", ""));
         }
 
         if (str.contains("[]")) {
-            return isBalanced(str.replaceFirst("\\[]", ""));
+            return isIsBalanced(str.replaceFirst("\\[]", ""));
         }
 
         if (str.contains("<>")) {
-            return isBalanced(str.replaceFirst("<>", ""));
+            return isIsBalanced(str.replaceFirst("<>", ""));
         }
 
-        return str.contains("{}") && isBalanced(str.replaceFirst("\\{}", ""));
+        return str.contains("{}") && isIsBalanced(str.replaceFirst("\\{}", ""));
     }
 }
