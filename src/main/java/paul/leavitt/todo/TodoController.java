@@ -16,19 +16,21 @@ public class TodoController {
 
     @GetMapping("/todo/{id}")
     public Todo getTodoById(@PathVariable Long id) {
-       return repository.findById(id)
+
+        return repository.findById(id)
                .orElseThrow(() -> new TodoNotFoundException("Item", id));
     }
 
-    @PostMapping("/todo/")
+    @PostMapping("/todo")
     public Todo createTodo(@Valid @RequestBody Todo todo) {
         return repository.save(todo);
     }
 
     @PatchMapping("/todo/{id}")
-    public Todo updateTodo(@PathVariable(value = "id") Long todoId, @Valid @RequestBody Todo todoContents) {
-        Todo todo = repository.findById(todoId)
-                .orElseThrow(() -> new TodoNotFoundException("Item", todoId));
+    public Todo updateTodo(@PathVariable Long id, @Valid @RequestBody Todo todoContents) {
+
+        Todo todo = repository.findById(id)
+                .orElseThrow(() -> new TodoNotFoundException("Item", id));
         todo.setText(todoContents.getText());
         todo.setIsCompleted(todoContents.isIsCompleted());
 

@@ -13,6 +13,8 @@ import java.util.stream.Stream;
 @EnableJpaAuditing
 public class TodoApplication {
 
+    public String[] SEEDED_TODOS = {"Feed cat", "Wash dishes", "Take out bins", "Get a job"};
+
     public static void main(String[] args) {
         SpringApplication.run(TodoApplication.class, args);
     }
@@ -20,7 +22,7 @@ public class TodoApplication {
     @Bean
     ApplicationRunner init(TodoRepository repository) {
         return args -> {
-            Stream.of("Feed cat", "Wash dishes", "Take out bins", "Get a job")
+            Stream.of(SEEDED_TODOS)
                     .forEach(job -> {
                         Todo todo = new Todo(job);
                         todo.setIsCompleted(false);

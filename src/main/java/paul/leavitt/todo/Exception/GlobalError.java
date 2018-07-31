@@ -5,10 +5,10 @@ import lombok.Getter;
 
 @Getter
 @EqualsAndHashCode
-public class TodoGlobalError {
+public class GlobalError {
     private String code;
 
-    public TodoGlobalError(String code) {
+    public GlobalError(String code) {
         this.code = code;
     }
 }

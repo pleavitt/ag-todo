@@ -5,7 +5,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -16,14 +15,14 @@ import java.io.Serializable;
 public class Brackets implements Serializable {
 
     @Size(min = 1, max = 50)
-    @NotBlank
     private String input;
 
-    private boolean isbalanced;
+    private boolean isBalanced;
 
     public Brackets(String input) {
         this.input = input;
-        this.isbalanced = isIsBalanced(this.input);
+
+        this.isBalanced = isIsBalanced(input);
     }
 
     private boolean isIsBalanced(String str) {

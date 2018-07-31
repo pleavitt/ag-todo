@@ -5,11 +5,11 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public class TodoErrorView {
-    private List<TodoFieldError> details;
+public class ErrorView {
+    private List<FieldError> details;
     private String name;
 
-    public TodoErrorView(List<TodoFieldError> details, String name) {
+    public ErrorView(List<FieldError> details, String name) {
         this.details = details;
         this.name = name;
     }

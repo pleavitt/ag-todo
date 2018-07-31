@@ -7,7 +7,6 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Date;
@@ -24,7 +23,6 @@ public class Todo implements Serializable {
     private long id;
 
     @Size(min = 1, max = 50, message = "Must be between 1 and 50 chars long")
-    @NotBlank
     private String text;
 
     private boolean isCompleted;
