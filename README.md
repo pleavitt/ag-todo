@@ -7,13 +7,12 @@ Tech:
 * Spring Boot 2
 
 ## Purpose of this application
-
-This app was built for the primary purpose as a for a prospective employer.
+This app was built for the primary purpose as a test for a prospective employer.
 
 ## Demo
 [Here](https://thawing-garden-78853.herokuapp.com) is a link to a demo of the API
+[Here](https://thawing-garden-78853.herokuapp.com/swagger-ui.html#/) is a link to the swatter doc
 
 ## Current Issues/Outstanding Tasks
-
-- Using the /tasks/validateBrackets endpoint, the server sends an exception when square brackets are sent in the query string.
-Will try downgrading TomCat to a previous version as this appears to be a security fix in recent versions.
+- Add more commenting to code.
+- Remove any unused or unnecessary annotations
