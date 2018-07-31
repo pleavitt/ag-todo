@@ -20,8 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Todo implements Serializable {
 
-    @Id
-    @GeneratedValue
+    @Id @GeneratedValue
     private long id;
 
     @Size(min = 1, max = 50, message = "Must be between 1 and 50 chars long")
@@ -35,7 +34,7 @@ public class Todo implements Serializable {
     @CreatedDate
     private Date createdAt;
 
-    public Todo(String text) {
+    public Todo(String text){
         this.text = text;
     }
 
