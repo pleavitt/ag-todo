@@ -11,7 +11,8 @@ This app was built for the primary purpose as a test for a prospective employer.
 
 ## Demo
 [Here](https://thawing-garden-78853.herokuapp.com) is a link to a demo of the API
-[Here](https://thawing-garden-78853.herokuapp.com/swagger-ui.html#/) is a link to the swatter doc
+
+[Here](https://thawing-garden-78853.herokuapp.com/swagger-ui.html#/) is a link to the swagger doc
 
 ## Current Issues/Outstanding Tasks
 - Add more commenting to code.
