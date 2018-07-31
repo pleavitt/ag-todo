@@ -153,6 +153,5 @@ public class TodoApiTest {
                 .patch("todo/" + updateTodo.getId())
                 .then()
                 .statusCode(404);
-
     }
 }
